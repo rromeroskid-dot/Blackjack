@@ -1,1 +1,82 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#071b14" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="apple-mobile-web-app-title" content="Blackjack" />
+  <title>10-Round Blackjack</title>
+  <link rel="manifest" href="manifest.webmanifest" />
+  <link rel="apple-touch-icon" href="icon.svg" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="app">
+    <section id="entry" class="card hero">
+      <p class="eyebrow">Private room · iPhone friendly</p>
+      <h1>10-Round Blackjack</h1>
+      <p>Invite up to 6 people with one link. Everyone starts with 1,000 chips. Highest net gain after 10 rounds wins.</p>
+      <input id="name" maxlength="18" placeholder="Your name" autocomplete="nickname" autocapitalize="words" />
+      <div class="row join-row">
+        <button id="createBtn">Create Room</button>
+        <input id="roomInput" maxlength="6" placeholder="Room code" autocapitalize="characters" />
+        <button id="joinBtn" class="secondary">Join</button>
+      </div>
+      <p id="entryError" class="error"></p>
+      <p class="small">Tip: open the link in Safari, then Share → Add to Home Screen for an app-like experience.</p>
+    </section>
 
+    <section id="game" class="hidden">
+      <div class="topbar safe-top">
+        <div>
+          <p class="eyebrow">Room <span id="roomCode"></span></p>
+          <h1>Blackjack Table</h1>
+          <p id="roundText"></p>
+        </div>
+        <button id="copyLink" class="secondary">Copy Invite Link</button>
+      </div>
+
+      <section class="card controls sticky-actions">
+        <h2>Controls</h2>
+        <p id="statusText">Waiting...</p>
+        <div class="row action-row">
+          <button id="startBtn">Start</button>
+          <button id="hitBtn">Hit</button>
+          <button id="standBtn" class="secondary">Stand</button>
+          <button id="nextBtn">Next</button>
+        </div>
+      </section>
+
+      <div class="grid">
+        <section class="card dealer">
+          <h2>Dealer</h2>
+          <div id="dealerCards" class="cards"></div>
+          <p id="dealerValue"></p>
+        </section>
+
+        <section class="card scoreboard">
+          <h2>Scoreboard</h2>
+          <div id="scoreboard" class="scoreboard-list"></div>
+        </section>
+      </div>
+
+      <section class="card">
+        <h2>Players</h2>
+        <div id="players" class="players"></div>
+      </section>
+
+      <section id="winnerBox" class="card winner hidden"></section>
+
+      <section class="card log-card">
+        <h2>Game Log</h2>
+        <ul id="log"></ul>
+      </section>
+    </section>
+  </main>
+
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

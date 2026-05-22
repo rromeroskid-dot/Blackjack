@@ -1,0 +1,110 @@
+:root {
+  font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  color: #f7fff7;
+  background: #071b14;
+  color-scheme: dark;
+}
+* { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+html { min-height: 100%; }
+body {
+  margin: 0;
+  min-height: 100svh;
+  background: radial-gradient(circle at top, #1a6a4d, #071b14 58%);
+  overscroll-behavior: none;
+}
+button, input { font: inherit; }
+.app {
+  width: min(1100px, 100%);
+  margin: 0 auto;
+  padding: max(18px, env(safe-area-inset-top)) max(16px, env(safe-area-inset-right)) max(24px, env(safe-area-inset-bottom)) max(16px, env(safe-area-inset-left));
+}
+.card {
+  background: rgba(255,255,255,.1);
+  border: 1px solid rgba(255,255,255,.16);
+  border-radius: 24px;
+  padding: 20px;
+  box-shadow: 0 20px 50px rgba(0,0,0,.24);
+  backdrop-filter: blur(12px);
+}
+.hero { max-width: 720px; margin: 7svh auto; text-align: center; }
+.eyebrow { margin: 0 0 6px; color: #f6c453; font-weight: 900; text-transform: uppercase; letter-spacing: .08em; font-size: .78rem; }
+h1 { margin: 0 0 8px; font-size: clamp(2rem, 8vw, 4rem); line-height: .95; }
+h2 { margin: 0 0 12px; font-size: 1.2rem; }
+p { color: #d8eadf; line-height: 1.35; }
+.small { font-size: .9rem; opacity: .85; }
+input {
+  width: 100%;
+  min-height: 52px;
+  padding: 14px 16px;
+  border-radius: 16px;
+  border: 1px solid rgba(255,255,255,.24);
+  background: rgba(0,0,0,.28);
+  color: white;
+  font-size: 16px;
+}
+button {
+  border: 0;
+  border-radius: 16px;
+  min-height: 52px;
+  padding: 14px 18px;
+  font-weight: 900;
+  cursor: pointer;
+  background: #f6c453;
+  color: #1a1508;
+  touch-action: manipulation;
+  box-shadow: 0 10px 20px rgba(0,0,0,.18);
+}
+button.secondary { background: #e8fff4; color: #062116; }
+button:active { transform: translateY(1px); }
+button:disabled { opacity: .42; cursor: not-allowed; transform: none; }
+.row { display: flex; gap: 10px; margin-top: 14px; flex-wrap: wrap; }
+.row > * { flex: 1; min-width: 120px; }
+.hidden { display: none !important; }
+.topbar { display: flex; justify-content: space-between; gap: 16px; align-items: center; margin-bottom: 14px; }
+.grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin: 14px 0; }
+.cards { display: flex; gap: 9px; flex-wrap: wrap; min-height: 78px; align-items: center; }
+.playing-card {
+  background: white;
+  color: #111;
+  border-radius: 12px;
+  width: 54px;
+  height: 76px;
+  display: grid;
+  place-items: center;
+  font-size: 1.15rem;
+  font-weight: 950;
+  box-shadow: 0 10px 24px rgba(0,0,0,.25);
+}
+.red { color: #c82333; }
+.players { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 12px; }
+.player { border-radius: 18px; padding: 14px; background: rgba(0,0,0,.24); border: 1px solid rgba(255,255,255,.12); }
+.player.turn { outline: 3px solid #f6c453; }
+.player h3, .score-row { margin: 0 0 8px; display: flex; justify-content: space-between; gap: 10px; align-items: center; }
+.stat { color: #d8eadf; font-size: .95rem; margin-bottom: 4px; }
+.scoreboard-list { display: grid; gap: 8px; }
+.score-row { background: rgba(0,0,0,.22); border-radius: 14px; padding: 10px 12px; }
+.gain { font-weight: 950; color: #f6c453; }
+.error { color: #ffb5b5; min-height: 1.2rem; }
+ul { padding-left: 20px; color: #d8eadf; max-height: 170px; overflow: auto; margin-bottom: 0; }
+.winner { text-align: center; background: rgba(246,196,83,.18); margin-bottom: 14px; }
+.controls { margin-bottom: 14px; }
+@media (max-width: 760px) {
+  .app { padding-top: calc(14px + env(safe-area-inset-top)); }
+  .hero { margin: 3svh auto; }
+  .grid, .topbar { display: block; }
+  .topbar button { width: 100%; margin-top: 12px; }
+  .card { border-radius: 22px; padding: 16px; }
+  .join-row { display: grid; grid-template-columns: 1fr; }
+  .action-row { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+  .sticky-actions {
+    position: sticky;
+    top: env(safe-area-inset-top);
+    z-index: 5;
+  }
+  .players { grid-template-columns: 1fr; }
+  .playing-card { width: 48px; height: 68px; font-size: 1rem; }
+}
+@media (max-width: 380px) {
+  .action-row { grid-template-columns: 1fr; }
+  h1 { font-size: 2rem; }
+}
