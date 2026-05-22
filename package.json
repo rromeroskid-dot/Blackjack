@@ -1,0 +1,17 @@
+{
+  "name": "blackjack-multiplayer-10-rounds",
+  "version": "1.0.0",
+  "description": "Shareable multiplayer blackjack room for up to 6 players over 10 rounds.",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "dependencies": {
+    "express": "^4.18.3",
+    "socket.io": "^4.7.5"
+  }
+}
