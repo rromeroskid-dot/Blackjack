@@ -1,0 +1,11 @@
+{
+  "name": "10-Round Blackjack",
+  "short_name": "Blackjack",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#071b14",
+  "theme_color": "#071b14",
+  "icons": [
+    { "src": "icon.svg", "sizes": "any", "type": "image/svg+xml" }
+  ]
+}
